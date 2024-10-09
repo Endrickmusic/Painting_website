@@ -126,13 +126,13 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+a:hover {
   background-color: none;
   color: #000000;
   text-decoration: line-through;
 }
 
-#li_home a {
+#a {
   color: #000000;
   padding: 0 1em;
   font-size: 20px;
@@ -149,9 +149,29 @@ li a:hover {
   color: #000000;
 }
 
+#container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full height of the viewport */
+  background-color: #ffffff; /* Optional: Background color for contrast */
+}
+
 #about-text {
-  background-color: white; /* Set background to white for contrast */
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 3.5px;
+  display: block;
+  width: 20%; /* Adjust width as needed */
+  background-color: #efefef; /* Set background to white for contrast */
   padding: 20px; /* Add padding for spacing */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  box-shadow: 25px 25px 25px black;
   margin: 20px; /* Margin around the box */
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+#about-text a {
+  text-decoration: none;
+  color: inherit; /* This will keep the current text color */
 }
