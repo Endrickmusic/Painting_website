@@ -1,4 +1,4 @@
-/* Existing font-face declaration */
+/* Font face declaration */
 @font-face {
   font-family: "Open Sans Condensed";
   font-style: normal;
@@ -14,11 +14,18 @@
       format("svg");
 }
 
+/* Global styles */
 body {
   font-family: "Open Sans Condensed", sans-serif;
   font-style: light;
   margin: 0;
   padding: 0;
+  color: #000000;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 
 /* Grid container for about and live dates pages */
@@ -35,7 +42,6 @@ body {
 .grid-item {
   background-color: #efefef;
   padding: 20px;
-  border-radius: 8px;
   box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -48,6 +54,7 @@ body {
   background-color: #ffffff;
 }
 
+/* Navigation styles */
 nav ul {
   display: block;
   width: 20%;
@@ -76,42 +83,9 @@ a:hover {
   text-decoration: line-through;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  nav ul {
-    width: 80%;
-    max-width: none;
-    margin: 10% auto;
-  }
-
-  li a {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .grid-container {
-    padding: 10px;
-  }
-
-  nav ul {
-    width: 90%;
-    margin: 5% auto;
-  }
-
-  li a {
-    font-size: 32px;
-  }
-}
-
-/* Existing styles for specific elements */
+/* Specific styles */
 #a,
 #impressum_aktuell {
-  color: #000000;
   font-size: 20px;
   padding: 0 1em;
   margin: 0;
@@ -134,4 +108,181 @@ a:hover {
 
 #live-dates li {
   padding: 10px 0;
+}
+
+/* Imprint page grid layout */
+.imprint-grid {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr 2fr 0.5fr;
+  gap: 25px;
+  padding: 20px;
+  height: 100vh;
+  font-size: 24px; /* Match the font size from nav ul */
+  letter-spacing: 3.5px; /* Match the letter-spacing from li a */
+}
+
+.imprint-grid .grid-item {
+  background-color: #efefef;
+  padding: 25px;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+}
+
+.home-link {
+  grid-column: 1 / 3;
+  grid-row: 1 / 4;
+  align-self: start;
+  justify-self: start;
+  background-color: transparent;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.home-link a {
+  font-size: 24px;
+  text-decoration: none;
+  color: #000;
+}
+
+.address {
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+}
+
+.privacy-policy {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+.imprint-grid h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.imprint-grid p {
+  margin-bottom: 10px;
+}
+
+/* Responsive styles for imprint */
+@media (max-width: 768px) {
+  .imprint-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    font-size: 24px;
+  }
+
+  .home-link {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .address {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .privacy-policy {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+}
+
+@media (max-width: 480px) {
+  .imprint-grid {
+    font-size: 20px;
+  }
+
+  .home-link a {
+    font-size: 20px;
+  }
+
+  .imprint-grid h2 {
+    font-size: 26px;
+  }
+}
+
+/* Media queries from the original CSS */
+@media (max-width: 480px) and (orientation: portrait) {
+  ul {
+    font-size: 30px;
+    padding: 11%;
+    margin: 37% auto;
+  }
+  .column {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+  ul {
+    font-size: 30px;
+    padding: 2%;
+    margin: 10% auto;
+  }
+  .column {
+    width: 80%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 750px) and (orientation: portrait) {
+  ul {
+    font-size: 34px;
+    padding: 5%;
+    margin: 20% auto;
+  }
+  .column {
+    width: 80%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 750px) and (orientation: landscape) {
+  ul {
+    font-size: 24px;
+    padding: 3.8%;
+    margin: 7.5% auto;
+  }
+  .column {
+    width: 40%;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 1024px) and (orientation: portrait) {
+  ul {
+    font-size: 32px;
+    padding: 5%;
+    margin: 45% auto;
+    max-height: 250px;
+  }
+  .column {
+    width: 22%;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 1024px) and (orientation: landscape) {
+  nav ul {
+    font-size: 24px;
+    padding: 3.5%;
+    margin: 22% auto;
+    max-height: 250px;
+  }
+  .column {
+    width: 32%;
+  }
+}
+
+@media (min-width: 1025px) {
+  nav ul {
+    font-size: 27px;
+    padding: 2%;
+    margin: 16% auto;
+    max-height: 220px;
+  }
+  .column {
+    width: 20%;
+  }
+}
+
+/* Additional styles from the original CSS */
+.column {
+  float: left;
 }
