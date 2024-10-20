@@ -61,7 +61,7 @@ nav ul {
   max-width: 250px;
   min-width: 150px;
   list-style-type: none;
-  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
   padding: 2%;
   margin: 16% auto;
   max-height: 220px;
@@ -349,6 +349,9 @@ footer {
   text-decoration: none;
   color: #000;
 }
+.about-grid .home-link a:hover {
+  text-decoration: line-through;
+}
 
 .about-grid .about-image {
   grid-area: image;
@@ -359,7 +362,7 @@ footer {
 .about-grid .about-image img {
   max-width: 100%;
   height: auto;
-  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
 }
 
 .about-grid .about-text {
