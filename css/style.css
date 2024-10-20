@@ -112,20 +112,22 @@ a:hover {
 
 /* Imprint page grid layout */
 .imprint-grid {
+  background-color: #ffffff;
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-  grid-template-rows: 0.5fr 0.5fr 2fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
   gap: 25px;
   padding: 20px;
   height: 100vh;
-  font-size: 24px; /* Match the font size from nav ul */
+  font-size: 20px; /* Match the font size from nav ul */
   letter-spacing: 3.5px; /* Match the letter-spacing from li a */
 }
 
 .imprint-grid .grid-item {
-  background-color: #efefef;
+  background-color: #ffffff;
   padding: 25px;
   box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+  max-width: 480px;
 }
 
 .home-link {
@@ -156,7 +158,7 @@ a:hover {
 
 .imprint-grid h2 {
   font-size: 32px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .imprint-grid p {
@@ -177,13 +179,15 @@ a:hover {
   }
 
   .address {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-area: address;
+    max-width: 100px;
+    justify-self: center;
   }
 
   .privacy-policy {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
+    grid-area: privacy;
+    max-width: 100px;
+    justify-self: end;
   }
 }
 
@@ -285,4 +289,121 @@ a:hover {
 /* Additional styles from the original CSS */
 .column {
   float: left;
+}
+
+/* Your existing styles */
+
+/* Footer styles */
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 40px 50px;
+}
+
+.footer-link {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 20px; /* Slightly smaller than the 27px used for main navigation */
+  letter-spacing: 3.5px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.footer-link:hover {
+  text-decoration: line-through;
+}
+
+/* Ensure the footer doesn't overlap with main content on smaller screens */
+@media (max-height: 500px) {
+  footer {
+    position: static;
+    text-align: right;
+  }
+}
+
+/* About page grid layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "home home"
+    "image text";
+  gap: 20px;
+  padding: 20px;
+  height: 100vh;
+  font-size: 27px;
+  letter-spacing: 3.5px;
+}
+
+.about-grid .home-link {
+  grid-area: home;
+  align-self: start;
+  justify-self: start;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.about-grid .home-link a {
+  font-size: 24px;
+  text-decoration: none;
+  color: #000;
+}
+
+.about-grid .about-image {
+  grid-area: image;
+  justify-self: center;
+  align-self: center;
+}
+
+.about-grid .about-image img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.1);
+}
+
+.about-grid .about-text {
+  grid-area: text;
+  max-width: 600px;
+  justify-self: start;
+  align-self: center;
+}
+
+.about-grid h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-grid p {
+  margin-bottom: 15px;
+}
+
+/* Responsive styles for about page */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "home"
+      "image"
+      "text";
+    font-size: 24px;
+  }
+
+  .about-grid .about-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    font-size: 20px;
+  }
+
+  .about-grid .home-link a {
+    font-size: 20px;
+  }
+
+  .about-grid h1 {
+    font-size: 28px;
+  }
 }
