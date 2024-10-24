@@ -28,270 +28,150 @@ a {
   text-decoration: none;
 }
 
-/* Grid container for about and live dates pages */
-.grid-container {
+a:hover {
+  text-decoration: line-through;
+  color: #000000;
+}
+
+nav {
+  position: relative; /* Make nav a positioning context */
+  /* keep your existing nav styles */
+}
+
+/* Shared grid layout for about, live dates, and past dates pages */
+.about-grid,
+.live-grid,
+.past-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "home home"
+    "main sidebar";
+  gap: 40px;
   padding: 20px;
-  max-width: 1200px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 24px;
+  letter-spacing: 3.5px;
+}
+
+.imprint-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "home"
+    "address"
+    "privacy";
+  gap: 40px;
+  padding: 20px 100px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-size: 24px;
+  letter-spacing: 3.5px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Styles for grid items */
-.grid-item {
-  background-color: #efefef;
-  padding: 20px;
-  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Center container for index page */
-#container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #ffffff;
-}
-
-/* Navigation styles */
-nav ul {
-  display: block;
-  width: 20%;
-  max-width: 250px;
-  min-width: 150px;
-  list-style-type: none;
-  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
-  padding: 2%;
-  margin: 16% auto;
-  max-height: 220px;
-}
-
-li a {
-  display: block;
-  width: 100%;
-  letter-spacing: 3.5px;
-  text-decoration: none;
-  color: black;
-  font-size: 27px;
-  padding: 5px 0;
-}
-
-a:hover {
+/* Home link styles - shared across pages */
+.home-link {
+  grid-area: home;
+  align-self: start;
+  justify-self: start;
   background-color: transparent;
-  color: #000000;
-  text-decoration: line-through;
+  padding: 12px 20px;
+  margin: 100px 0px 0 0px;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Specific styles */
-#a,
-#impressum_aktuell {
-  font-size: 20px;
-  padding: 0 1em;
-  margin: 0;
-  line-height: 0.8;
+.home-link a {
+  font-size: 24px;
 }
 
-#about-text,
-#live-dates {
-  width: 100%;
-  box-sizing: border-box;
+/* Main content area styles */
+.about-image {
+  grid-area: main;
+  justify-self: center;
+  margin-top: 80px;
 }
 
-#live-dates ul {
-  width: 100%;
+.about-image img {
+  max-width: 100%;
   height: auto;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+}
+
+.about-text,
+.live-dates,
+.past-dates {
+  grid-area: sidebar;
+  max-width: none;
+  justify-self: start;
+  align-self: start;
+  margin-top: 0;
+  background-color: #ffffff;
+  padding: 25px;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+}
+
+.grid-item.address {
+  grid-area: address;
+  background-color: #ffffff;
+  padding: 25px;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+}
+
+.grid-item.privacy-policy {
+  grid-area: privacy;
+  background-color: #ffffff;
+  padding: 25px;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Typography */
+h1 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+/* Dates listing styles */
+.live-dates ul,
+.past-dates ul {
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-#live-dates li {
+.live-dates li,
+.past-dates li {
   padding: 10px 0;
 }
 
-/* Imprint page grid layout */
-.imprint-grid {
-  background-color: #ffffff;
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-  grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
-  gap: 25px;
-  padding: 20px;
-  height: 100vh;
-  font-size: 20px; /* Match the font size from nav ul */
-  letter-spacing: 3.5px; /* Match the letter-spacing from li a */
-}
-
-.imprint-grid .grid-item {
-  background-color: #ffffff;
-  padding: 25px;
+/* Navigation styles */
+nav ul {
+  display: block;
+  width: 8%;
+  list-style-type: none;
   box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
-  max-width: 480px;
+  padding: 2%;
+  margin: 16% auto;
+  max-height: 280px;
 }
 
-.home-link {
-  grid-column: 1 / 3;
-  grid-row: 1 / 4;
-  align-self: start;
-  justify-self: start;
-  background-color: transparent;
-  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
-  padding: 10px;
+nav li a {
+  display: block;
+  width: 100%;
+  letter-spacing: 3.5px;
+  font-size: 27px;
+  padding: 5px 0;
 }
-
-.home-link a {
-  font-size: 24px;
-  text-decoration: none;
-  color: #000;
-}
-
-.address {
-  grid-column: 2 / 4;
-  grid-row: 3 / 4;
-}
-
-.privacy-policy {
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-}
-
-.imprint-grid h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.imprint-grid p {
-  margin-bottom: 10px;
-}
-
-/* Responsive styles for imprint */
-@media (max-width: 768px) {
-  .imprint-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    font-size: 24px;
-  }
-
-  .home-link {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-
-  .address {
-    grid-area: address;
-    max-width: 100px;
-    justify-self: center;
-  }
-
-  .privacy-policy {
-    grid-area: privacy;
-    max-width: 100px;
-    justify-self: end;
-  }
-}
-
-@media (max-width: 480px) {
-  .imprint-grid {
-    font-size: 20px;
-  }
-
-  .home-link a {
-    font-size: 20px;
-  }
-
-  .imprint-grid h2 {
-    font-size: 26px;
-  }
-}
-
-/* Media queries from the original CSS */
-@media (max-width: 480px) and (orientation: portrait) {
-  ul {
-    font-size: 30px;
-    padding: 11%;
-    margin: 37% auto;
-  }
-  .column {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) and (orientation: landscape) {
-  ul {
-    font-size: 30px;
-    padding: 2%;
-    margin: 10% auto;
-  }
-  .column {
-    width: 80%;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 750px) and (orientation: portrait) {
-  ul {
-    font-size: 34px;
-    padding: 5%;
-    margin: 20% auto;
-  }
-  .column {
-    width: 80%;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 750px) and (orientation: landscape) {
-  ul {
-    font-size: 24px;
-    padding: 3.8%;
-    margin: 7.5% auto;
-  }
-  .column {
-    width: 40%;
-  }
-}
-
-@media (min-width: 751px) and (max-width: 1024px) and (orientation: portrait) {
-  ul {
-    font-size: 32px;
-    padding: 5%;
-    margin: 45% auto;
-    max-height: 250px;
-  }
-  .column {
-    width: 22%;
-  }
-}
-
-@media (min-width: 751px) and (max-width: 1024px) and (orientation: landscape) {
-  nav ul {
-    font-size: 24px;
-    padding: 3.5%;
-    margin: 22% auto;
-    max-height: 250px;
-  }
-  .column {
-    width: 32%;
-  }
-}
-
-@media (min-width: 1025px) {
-  nav ul {
-    font-size: 27px;
-    padding: 2%;
-    margin: 16% auto;
-    max-height: 220px;
-  }
-  .column {
-    width: 20%;
-  }
-}
-
-/* Additional styles from the original CSS */
-.column {
-  float: left;
-}
-
-/* Your existing styles */
 
 /* Footer styles */
 footer {
@@ -302,111 +182,93 @@ footer {
 }
 
 .footer-link {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-size: 20px; /* Slightly smaller than the 27px used for main navigation */
+  font-size: 20px;
   letter-spacing: 3.5px;
-  text-decoration: none;
-  color: #000000;
 }
 
-.footer-link:hover {
-  text-decoration: line-through;
+/* Responsive styles */
+@media (max-width: 768px) {
+  .about-grid,
+  .live-grid,
+  .past-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "home"
+      "main"
+      "sidebar";
+    font-size: 24px;
+  }
+
+  .about-text,
+  .live-dates,
+  .past-dates {
+    max-width: 100%;
+    font-size: 12px;
+  }
+  nav ul {
+    max-width: 200px;
+    min-width: 100px;
+    width: 60%; /* Increased from 40% */
+    font-size: 34px;
+    padding: 5%; /* Reduced from 11% */
+    margin: 37% auto;
+  }
 }
 
-/* Ensure the footer doesn't overlap with main content on smaller screens */
+@media (max-width: 480px) {
+  .about-grid,
+  .live-grid,
+  .past-grid {
+    font-size: 20px;
+    gap: 20px;
+  }
+
+  .home-link a {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  nav ul {
+    max-width: none; /* Remove max-width constraint */
+    min-width: 0; /* Remove min-width constraint */
+    width: 80%; /* Use larger percentage */
+    font-size: 34px;
+    padding: 5%; /* Reduced padding */
+    margin: 37% auto;
+  }
+}
+
 @media (max-height: 500px) {
   footer {
     position: static;
     text-align: right;
   }
+  nav ul {
+    max-width: none;
+    min-width: none;
+    width: 40%;
+    font-size: 50px;
+    padding: 5%;
+    /* margin: 37% auto; */
+  }
 }
 
-/* About page grid layout */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "home home"
-    "image text";
-  gap: 20px;
-  padding: 20px;
-  height: 100vh;
-  font-size: 27px;
-  letter-spacing: 3.5px;
+h2 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  user-select: none;
 }
 
-.about-grid .home-link {
-  grid-area: home;
-  align-self: start;
-  justify-self: start;
-  background-color: transparent;
-  padding: 10px;
-}
-
-.about-grid .home-link a {
-  font-size: 24px;
-  text-decoration: none;
-  color: #000;
-}
-.about-grid .home-link a:hover {
-  text-decoration: line-through;
-}
-
-.about-grid .about-image {
-  grid-area: image;
-  justify-self: center;
-  align-self: center;
-}
-
-.about-grid .about-image img {
-  max-width: 100%;
-  height: auto;
-  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
-}
-
-.about-grid .about-text {
-  grid-area: text;
-  max-width: 600px;
-  justify-self: start;
-  align-self: center;
-}
-
-.about-grid h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.about-grid p {
-  margin-bottom: 15px;
-}
-
-/* Responsive styles for about page */
+/* Make it responsive */
 @media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "home"
-      "image"
-      "text";
-    font-size: 24px;
-  }
-
-  .about-grid .about-text {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-grid {
-    font-size: 20px;
-  }
-
-  .about-grid .home-link a {
-    font-size: 20px;
-  }
-
-  .about-grid h1 {
-    font-size: 28px;
+  h1 {
+    font-size: 1.5rem;
+    top: -20px;
+    left: -20px;
   }
 }
